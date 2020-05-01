@@ -61,6 +61,8 @@ F2PY_LINK_ARGS = $(shell ${PYTHON} -c 'import sys; print(" ".join([arg for arg i
 
 F90WRAP_PATH = $(shell ${PIP} show f90wrap | grep Location | sed -e 's/Location: //' -e 's/lib.*/bin/')
 
+$(info "TEST: PIP show f90wrap output" $(shell ${PIP} show f90wrap) )
+
 F90WRAP = ${F90WRAP_PATH}/f90wrap
 F2PY_F90WRAP = ${F90WRAP_PATH}/f2py-f90wrap
 
