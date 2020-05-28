@@ -1,6 +1,6 @@
 # Place to override setting elsewhere, in particular things set in Makefile.linux_x86_64_gfortran
 # look in QUIP/arch/Makefile.linux_x86_64_gfortran for defaults set by arch
-# 
+#
 # F77=gfortran
 # F90=gfortran
 # F95=gfortran
@@ -42,3 +42,5 @@ HAVE_CGAL=0
 HAVE_METIS=0
 HAVE_LMTO_TBE=0
 SIZEOF_FORTRAN_T=2
+PIP=pip3
+PYTHON=python3

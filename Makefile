@@ -214,8 +214,8 @@ libquip.a: ${MODULES} ${GAPFIT}
 ${BUILDDIR}:
 	@if [ ! -d build/${QUIP_ARCH}${QUIP_ARCH_SUFFIX} ] ; then mkdir -p build/${QUIP_ARCH}${QUIP_ARCH_SUFFIX} ; fi
 
-PY_VERSION=$(shell python -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)")
-HAVE_PYTHON3=$(shell python -c 'import sys; print(int(sys.version_info[0] >= 3))')
+PY_VERSION=$(shell ${PYTHON} -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)")
+HAVE_PYTHON3=$(shell ${PYTHON} -c 'import sys; print(int(sys.version_info[0] >= 3))')
 quippy: libquip.a ${GAP_PROGRAMS}
 	@echo "********************************************"
 	@echo ""
@@ -257,7 +257,7 @@ clean: ${BUILDDIR}
 	rm -rf src/${FOX}/objs.${QUIP_ARCH}
 
 deepclean: clean
-	find . -name \*.s | xargs rm
+	find . -name "*.s" -type f -delete
 
 distclean: clean
 	rm -rf build
